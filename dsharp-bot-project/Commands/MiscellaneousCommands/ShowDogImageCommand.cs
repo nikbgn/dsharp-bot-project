@@ -10,15 +10,15 @@
 
         public static async Task ShowDogImage(CommandContext ctx)
         {
-            var result = await GetImage();
-            string message = string.IsNullOrEmpty(result)?
-                "There was an error, please try again later...":
-                $"**Note: You can use this command only 3 times per hour!**\nThe images are provided by : \"https://dog.ceo/dog-api/\"\n {result}";
+            var result = await GetImageAsync();
+            string message = !string.IsNullOrEmpty(result) ?
+            string.Format(GlobalConstants.DOG_MESSAGE_SUCCESS, new string[] { dogApiURL, result}) :
+            GlobalConstants.MESSAGE_ERROR;
 
             await ctx.RespondAsync(message);
         }
 
-        private async static Task<string> GetImage()
+        private async static Task<string> GetImageAsync()
         {
 
             HttpClient client = new HttpClient();
