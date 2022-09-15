@@ -15,5 +15,15 @@
         public async Task ShowDogImage(CommandContext ctx)
             => await ShowDogImageCommand.ShowDogImage(ctx);
 
+
+        [Command("triviafact")]
+        [Cooldown(
+            GlobalConstants.TRIVIA_COMMAND_MAX_USES,
+            GlobalConstants.TRIVIA_COMMAND_RESET_AFTER_ONE_HOUR,
+            CooldownBucketType.User
+            )]
+        public async Task RandomTriviaFact(CommandContext ctx)
+            => await RandomTriviaFactCommand.ShowTriviaFact(ctx);
+
     }
 }
