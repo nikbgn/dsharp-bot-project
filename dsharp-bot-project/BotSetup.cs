@@ -1,7 +1,9 @@
 ﻿namespace dsharp_bot_project
 {
     using DSharpPlus;
+    using DSharpPlus.CommandsNext;
     using Microsoft.Extensions.Logging;
+    using dsharp_bot_project.Commands;
 
     public static class BotSetup
     {
@@ -18,15 +20,14 @@
 
             });
 
-            discord.MessageCreated += async (s, e) =>
-            {
-                //Testing first "command"
-                if (e.Message.Content.ToLower().StartsWith("hello") && !e.Message.Author.IsBot)
+            var commands = 
+                discord.UseCommandsNext(new CommandsNextConfiguration()
                 {
-                    await e.Message.RespondAsync("Hello there!");
-                }
+                    StringPrefixes = new[] {"&"} 
+                });
 
-            };
+            commands.RegisterCommands<GreetingModule>();
+
 
             await discord.ConnectAsync();
             await Task.Delay(-1);
