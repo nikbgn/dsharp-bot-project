@@ -3,7 +3,7 @@
     using DSharpPlus;
     using DSharpPlus.CommandsNext;
     using Microsoft.Extensions.Logging;
-    using dsharp_bot_project.Commands;
+    using dsharp_bot_project.Modules;
 
     public static class BotSetup
     {
@@ -27,6 +27,7 @@
                 });
 
             commands.RegisterCommands<GreetingModule>();
+            commands.RegisterCommands<MiscellaneousModule>();
 
 
             await discord.ConnectAsync();
