@@ -12,6 +12,7 @@
             GlobalConstants.DOG_COMMAND_MAX_USES,
             GlobalConstants.DOG_COMMAND_RESET_AFTER_ONE_HOUR,
             CooldownBucketType.User)]
+        [Description("A command that send an image of a dog.")]
         public async Task ShowDogImage(CommandContext ctx)
             => await ShowDogImageCommand.ShowDogImage(ctx);
 
@@ -22,6 +23,7 @@
             GlobalConstants.TRIVIA_COMMAND_RESET_AFTER_ONE_HOUR,
             CooldownBucketType.User
             )]
+        [Description("A command that sends a random trivia fact.")]
         public async Task RandomTriviaFact(CommandContext ctx)
             => await RandomTriviaFactCommand.ShowTriviaFact(ctx);
 

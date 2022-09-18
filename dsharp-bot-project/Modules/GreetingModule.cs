@@ -8,10 +8,12 @@
     {
 
         [Command("sayhello")]
+        [Description("A command that says hello.")]
         public async Task SayHello(CommandContext ctx)
             => await SayHelloCommand.SayHello(ctx);
 
         [Command("saywelcome")]
+        [Description("A command that welcomes you.")]
         public async Task SayWelcome(CommandContext ctx)
             => await SayWelcomeCommand.SayWelcome(ctx);
     }
