@@ -28,6 +28,7 @@
 
             commands.RegisterCommands<GreetingModule>();
             commands.RegisterCommands<MiscellaneousModule>();
+            commands.SetHelpFormatter<CustomHelpFormatter>();
 
 
             await discord.ConnectAsync();
