@@ -4,7 +4,7 @@
     {
         //Discord bot token goes here.
         public const string DISCORD_TOKEN = "BOT_TOKEN_GOES_HERE";
-        
+
 
 
         //Dog image command settings.
